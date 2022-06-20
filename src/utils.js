@@ -6,3 +6,13 @@ export function chunkify(str, n, sep = ' ') {
 
     return chunks.join(sep);
 }
+
+export function getNumberResults(n) {
+    if (n === 1) {
+        return `${n} resultado`;
+    } else if (n > 1) {
+        return `${n} resultados`;
+    } else {
+        return 'Sem resultados';
+    }
+}

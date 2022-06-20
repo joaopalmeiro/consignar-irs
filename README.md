@@ -17,3 +17,4 @@
 - `pnpm install -D tailwindcss postcss autoprefixer`.
 - `npx tailwindcss init -p`.
 - `pnpm install flowbite flowbite-react`.
+- `pnpm install fuse.js lucide-react prop-types`.
