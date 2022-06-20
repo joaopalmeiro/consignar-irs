@@ -1,5 +1,6 @@
 import { Badge, Button, Card } from 'flowbite-react';
 import data from './data.json';
+import { chunkify } from './utils';
 
 // https://flowbite-react.com/
 // https://github.com/themesberg/flowbite-react/blob/main/src/docs/pages/CardPage.tsx
@@ -17,7 +18,7 @@ function App() {
                         <Card key={datum.NIPC}>
                             <div className="flex flex-wrap gap-2">
                                 <Badge color="gray">{datum.LOCALIDADE}</Badge>
-                                <Badge color="gray">{datum.NIPC}</Badge>
+                                <Badge color="gray">{chunkify(datum.NIPC.toString(), 3)}</Badge>
                             </div>
 
                             <p className="mb-4 text-lg font-normal text-gray-900 dark:text-white">
