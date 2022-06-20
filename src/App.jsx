@@ -2,16 +2,21 @@ import { Badge, Button, Card, TextInput } from 'flowbite-react';
 import Fuse from 'fuse.js';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
+import { useCopyClipboard } from 'react-recipes';
+import { SEARCH_BOX_ID, SEARCH_LABEL } from './constants';
 import data from './data.json';
 import Header from './Header';
 import { chunkify, getNumberResults } from './utils';
-
-const SEARCH_BOX_ID = 'entity-search';
 
 // https://flowbite-react.com/
 // https://github.com/themesberg/flowbite-react/blob/main/src/docs/pages/CardPage.tsx
 function App() {
     const [searchResults, setSearchResults] = useState(null);
+
+    // https://github.com/craig1123/react-recipes/blob/master/docs/useCopyClipboard.md
+    // https://github.com/craig1123/react-recipes/blob/master/src/useCopyClipboard.js
+    const [copiedValue, setCopiedValue] = useState(null);
+    const [isCopied, setIsCopied] = useCopyClipboard();
 
     // https://fusejs.io/api/options.html
     const fuse = new Fuse(data, {
@@ -44,7 +49,7 @@ function App() {
                     className="flex items-center gap-2"
                 >
                     <label htmlFor={SEARCH_BOX_ID} className="sr-only">
-                        Pesquisar
+                        {SEARCH_LABEL}
                     </label>
 
                     {/* https://github.com/themesberg/flowbite-react/blob/main/src/lib/components/FormControls/TextInput.tsx */}
@@ -60,7 +65,7 @@ function App() {
                     </div>
 
                     <Button type="submit" gradientMonochrome="info">
-                        Pesquisar
+                        {SEARCH_LABEL}
                     </Button>
                 </form>
 
@@ -72,7 +77,9 @@ function App() {
                             <Card key={datum.item.NIPC}>
                                 <div className="flex flex-wrap gap-2">
                                     <Badge color="gray">{datum.item.LOCALIDADE}</Badge>
-                                    <Badge color="gray">
+                                    <Badge
+                                        color={datum.item.NIPC === copiedValue ? 'success' : 'gray'}
+                                    >
                                         {chunkify(datum.item.NIPC.toString(), 3)}
                                     </Badge>
                                 </div>
@@ -90,8 +97,17 @@ function App() {
                                     >
                                         Pesquisar no Google
                                     </Button>
-                                    <Button size="sm" gradientDuoTone="cyanToBlue">
-                                        Copiar NIF
+                                    <Button
+                                        size="sm"
+                                        gradientDuoTone="cyanToBlue"
+                                        onClick={() => {
+                                            setCopiedValue(datum.item.NIPC);
+                                            setIsCopied(datum.item.NIPC);
+                                        }}
+                                    >
+                                        {isCopied && copiedValue === datum.item.NIPC
+                                            ? 'Copiado'
+                                            : ' Copiar NIF'}
                                     </Button>
                                 </div>
                             </Card>

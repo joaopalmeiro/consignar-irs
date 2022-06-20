@@ -15,7 +15,8 @@
         "lucide-react": "^0.68.0",
         "prop-types": "^15.8.1",
         "react": "^18.1.0",
-        "react-dom": "^18.1.0"
+        "react-dom": "^18.1.0",
+        "react-recipes": "^1.4.0"
     },
     "devDependencies": {
         "@joaopalmeiro/prettier-config": "^0.1.1",
