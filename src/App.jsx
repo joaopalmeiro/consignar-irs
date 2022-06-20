@@ -1,5 +1,6 @@
 import { Badge, Button, Card } from 'flowbite-react';
 import data from './data.json';
+import Header from './Header';
 import { chunkify } from './utils';
 
 // https://flowbite-react.com/
@@ -7,12 +8,13 @@ import { chunkify } from './utils';
 function App() {
     // https://tailwindcss.com/docs/space#add-horizontal-space-between-children
     // https://flowbite.com/docs/customize/colors/
+    // https://blog.azagatti.dev/layout/
     return (
-        <div>
-            <h1>Consignar é o que está a dar!</h1>
-            {/* <h1>Consignar é o que está a doar!</h1> */}
+        // Container
+        <div className="max-w-2xl">
+            <Header />
 
-            <div className="max-w-2xl">
+            <main>
                 <div className="flex flex-col gap-4">
                     {data.map((datum) => (
                         <Card key={datum.NIPC}>
@@ -41,7 +43,7 @@ function App() {
                         </Card>
                     ))}
                 </div>
-            </div>
+            </main>
         </div>
     );
 }
