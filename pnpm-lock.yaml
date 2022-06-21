@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@headlessui/react': ^1.6.5
   '@joaopalmeiro/prettier-config': ^0.1.1
   '@vitejs/plugin-react': ^1.3.2
   autoprefixer: ^10.4.7
@@ -18,6 +19,7 @@ specifiers:
   vite: ^2.9.12
 
 dependencies:
+  '@headlessui/react': 1.6.5_react-dom@18.2.0+react@18.2.0
   flowbite: 1.4.7
   flowbite-react: 0.0.26_2c6d368eb48f94e30d15ef98c8c159f6
   fuse.js: 6.6.2
@@ -331,6 +333,17 @@ packages:
       use-isomorphic-layout-effect: 1.1.2_react@18.2.0
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /@headlessui/react/1.6.5_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha512-3VkKteDxlxf3fE0KbfO9t60KC1lM7YNpZggLpwzVNg1J/zwL+h+4N7MBlFDVpInZI3rKlZGpNx0PWsG/9c2vQg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@joaopalmeiro/prettier-config/0.1.1_prettier@2.7.1:

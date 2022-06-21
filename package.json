@@ -9,6 +9,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@headlessui/react": "^1.6.5",
         "flowbite": "^1.4.7",
         "flowbite-react": "^0.0.26",
         "fuse.js": "^6.6.2",

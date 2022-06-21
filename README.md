@@ -19,3 +19,4 @@
 - `pnpm install flowbite flowbite-react`.
 - `pnpm install fuse.js lucide-react prop-types`.
 - `pnpm install react-recipes`.
+- `pnpm install @headlessui/react`.
