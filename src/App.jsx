@@ -29,7 +29,8 @@ function App() {
     // https://blog.azagatti.dev/layout/
     return (
         // Container
-        <div className="max-w-2xl">
+        // https://devdojo.com/tails/v1/app
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <Header />
 
             <main>
@@ -46,7 +47,8 @@ function App() {
 
                         setSearchResults(fuse.search(query));
                     }}
-                    className="flex items-center gap-2"
+                    // https://tailwindcss.com/docs/screens
+                    className="flex flex-col items-center max-w-xl gap-2 mx-auto sm:flex-row"
                 >
                     <label htmlFor={SEARCH_BOX_ID} className="sr-only">
                         {SEARCH_LABEL}
@@ -69,10 +71,14 @@ function App() {
                     </Button>
                 </form>
 
-                {searchResults && <p>{getNumberResults(searchResults.length)}</p>}
+                {searchResults && (
+                    <p className="mt-10 text-base text-center text-gray-500 sm:mt-12">
+                        {getNumberResults(searchResults.length)}
+                    </p>
+                )}
 
                 {searchResults && (
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 mt-4">
                         {searchResults.map((datum) => (
                             <Card key={datum.item.NIPC}>
                                 <div className="flex flex-wrap gap-2">
@@ -84,7 +90,7 @@ function App() {
                                     </Badge>
                                 </div>
 
-                                <p className="mb-4 text-lg font-normal text-gray-900 dark:text-white">
+                                <p className="mb-4 text-lg font-normal text-gray-900">
                                     {datum.item.NOME}
                                 </p>
 
