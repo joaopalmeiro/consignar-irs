@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useCopyClipboard } from 'react-recipes';
 import { SEARCH_BOX_ID, SEARCH_LABEL } from './constants';
 import data from './data.json';
+import Footer from './Footer';
 import Header from './Header';
 import ScrollToTop from './ScrollToTop';
 import { chunkify, getNumberResults } from './utils';
@@ -32,10 +33,10 @@ function App() {
     return (
         <>
             {/* Container */}
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="flex flex-col min-h-screen px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <Header />
 
-                <main>
+                <main className="flex-grow">
                     {/* https://blog.logrocket.com/fuse-js-dynamic-search-react-app/ */}
                     {/* https://github.com/dguo/react-with-fuse-demo */}
                     {/* https://github.com/colbyfayock/my-futurama-characters/blob/master/src/App.js */}
@@ -126,6 +127,8 @@ function App() {
                         </div>
                     )}
                 </main>
+
+                <Footer />
             </div>
 
             <ScrollToTop />
